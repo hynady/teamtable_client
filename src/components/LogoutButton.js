@@ -1,5 +1,6 @@
 // components/LogoutButton.js
 import React from 'react';
+import {Button} from "@mui/material";
 
 const LogoutButton = () => {
     const handleLogout = () => {
@@ -9,9 +10,13 @@ const LogoutButton = () => {
     };
 
     return (
-        <button onClick={handleLogout}>
+        <Button onClick={handleLogout}
+                variant="contained"
+                color="secondary"
+                style={{ marginTop: '20px' }}
+            >
             Đăng xuất
-        </button>
+        </Button>
     );
 };
 
