@@ -29,7 +29,7 @@ export const loginWithBackend = async ( id_token, access_token, refresh_token ) 
 };
 
 export const getUserInfo = async () => {
-    const response = await axios.get(`${process.env.REACT_APP_API_URI}/v1/oauth/user/info`, {
+    const response = await axios.get(`${process.env.REACT_APP_API_URI}/v1/user/info`, {
         withCredentials: true,
     });
 

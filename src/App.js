@@ -1,4 +1,3 @@
-// App.js
 import React from 'react';
 import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
@@ -8,7 +7,7 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import useDarkMode from './hooks/useDarkMode';
 import { darkTheme, lightTheme } from './styles/theme';
 import DarkModeToggle from './components/DarkModeToggle';
-
+import DiscordLikePage from './pages/DiscordLikePage';
 function App() {
     const [isDarkMode, toggleDarkMode] = useDarkMode();
 
@@ -21,13 +20,14 @@ function App() {
     return (
         <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
             <CssBaseline />
-            <Router>
-                <Routes>
-                    <Route index element={authTokenExists ? <Navigate to="/home" /> : <LoginPage />} />
-                    <Route path="/callback" element={authTokenExists ? <Navigate to="/home" /> : <CallbackPage />} />
-                    <Route path="/home" element={<HomePage />} />
-                </Routes>
-            </Router>
+                    <Router>
+                        <Routes>
+                            <Route index element={authTokenExists ? <Navigate to="/home" /> : <LoginPage />} />
+                            <Route path="/callback" element={authTokenExists ? <Navigate to="/home" /> : <CallbackPage />} />
+                            <Route path="/home" element={<HomePage />} />
+                            <Route path="/discord" element={<DiscordLikePage />} />
+                        </Routes>
+                    </Router>
             <DarkModeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
         </ThemeProvider>
     );
